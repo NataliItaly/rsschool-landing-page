@@ -13,17 +13,15 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <title>Coffe House</title>
   </head>
-  <body>
+  <body class="light">
     <header class="header">
       <div class="container">
         <nav class="header__nav">
-          <div class="header__logo">
-            <img
-              src="./assets/logo.png"
-              alt="Reasorce Coffe House"
-              class="header__logo-img"
-            />
-          </div>
+          <a
+            href="index.html"
+            class="header__logo"
+            aria-label="Resource Coffe House Logo"
+          ></a>
           <ul class="header__menu">
             <li class="header__menu-item">
               <a href="" class="header__link">Favorite coffe</a>
@@ -39,16 +37,86 @@
             </li>
           </ul>
           <div class="header__settings">
-            <div class="header__toggle">
+            <div class="header__toggle" id="theme-switch">
               <button
                 class="header__toggle-btn header__toggle-light header__toggle-active"
+                id="light"
               ></button>
-              <button class="header__toggle-btn header__toggle-dark"></button>
+              <button
+                class="header__toggle-btn header__toggle-dark"
+                id="dark"
+              ></button>
             </div>
             <button class="header__menu-btn">Menu</button>
           </div>
         </nav>
       </div>
     </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero__container">
+            <div class="hero__content">
+              <h1 class="hero__title">
+                <span class="text_accent">Enjoy</span>
+                premium coffee at our charming cafe
+              </h1>
+              <p class="hero__text">
+                With its inviting atmosphere and delicious coffee options, the
+                Coffee House Resource is a popular destination for coffee lovers
+                and those seeking a warm and inviting space to enjoy their
+                favorite beverage.
+              </p>
+              <button class="hero__btn">Menu</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="choose">
+        <div class="container">
+          <div class="choose__content">
+            <h2 class="section__title">
+              Choose your
+              <span class="text_accent">favorite</span>
+              coffee
+            </h2>
+            <div class="choose__slider slider">
+              <ul class="slider__list">
+                <li class="slider__item">
+                  <img
+                    src="./assets/images/slider/coffee-slider-1.png"
+                    alt="S’mores Frappuccino"
+                    class="slider__img"
+                  />
+                  <div class="slider__content">
+                    <p class="slider__item-title">S’mores Frappuccino</p>
+                    <p class="slider__item-text">
+                      This new drink takes an espresso and mixes it with brown
+                      sugar and cinnamon before being topped with oat milk.
+                    </p>
+                    <p class="slider__item-price">$5.50</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="slider__controls">
+                <button
+                  class="slider__controls-item slider__controls-item_active"
+                ></button>
+                <button class="slider__controls-item"></button>
+                <button class="slider__controls-item"></button>
+              </div>
+              <div class="slider__buttons">
+                <button class="slider__btn" aria-label="prev slide"></button>
+                <button class="slider__btn" aria-label="next slide"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>
