@@ -1,0 +1,115 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  color: inherit;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: #403f3d;
+  background: #e1d4c9;
+}
+
+.container {
+  max-width: 1440px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 20px 0;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  width: 100px;
+  height: 60px;
+}
+
+.header__logo-img {
+  display: block;
+  width: 100%;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header__settings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__menu-btn {
+  width: 72px;
+  background: url(./assets/icons/coffee-cup.svg) 20px / center no-repeat right;
+}
+
+.header__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 88px;
+  height: 44px;
+  padding: 3px;
+  border: 1px solid #c1b6ad;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.header__toggle-btn {
+  display: block;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border-radius: 50%;
+}
+
+.header__toggle-btn:first-of-type {
+  background: url(./assets/icons/sun.svg) no-repeat 22px / center;
+}
+
+.header__toggle-btn:first-of-type.header__toggle-active {
+  background:
+    url(../assets/icons/sun.svg) no-repeat 22px / center,
+    #b0907a;
+}
+
+.header__toggle-btn:last-of-type {
+  background:
+    url(../assets/icons/moon.svg) no-repeat 18px / center,
+    transparent;
+}
+
+.header__toggle-btn:last-of-type {
+  background:
+    url(../assets/icons/moon-active.svg) no-repeat 18px / center,
+    #b0907a;
+}
+
+/* Изменение стилей при выборе чекбокса */
+input.tog:checked + label {
+  background: #2285f5;
+}
+
+input.tog:checked + label::before {
+  transform: translateX(100%);
+}
