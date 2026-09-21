@@ -54,21 +54,34 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="tabs">
         <div class="container">
-          <div class="hero__container">
-            <div class="hero__content">
-              <h1 class="hero__title">
-                <span class="text_accent">Enjoy</span>
-                premium coffee at our charming cafe
+          <div class="tabs__container">
+            <div class="tabs__content">
+              <h1 class="tabs__title">
+                Behind each of our cups hides an
+                <span class="text_accent">amazing surprise</span>
               </h1>
-              <p class="hero__text">
-                With its inviting atmosphere and delicious coffee options, the
-                Coffee House Resource is a popular destination for coffee lovers
-                and those seeking a warm and inviting space to enjoy their
-                favorite beverage.
-              </p>
-              <button class="hero__btn">Menu</button>
+              <ul class="tabs__list">
+                <li class="tabs__item">
+                  <button class="tabs__btn tabs__btn_active" id="coffee-btn">
+                    <span class="tabs__btn-label"></span>
+                    Coffee
+                  </button>
+                </li>
+                <li class="tabs__item">
+                  <button class="tabs__btn" id="tea-btn">
+                    <span class="tabs__btn-label"></span>
+                    Tea
+                  </button>
+                </li>
+                <li class="tabs__item">
+                  <button class="tabs__btn" id="desert-btn">
+                    <span class="tabs__btn-label"></span>
+                    Desert
+                  </button>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
