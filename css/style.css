@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   --bg-color: var(--light-bg-color);
   --text-color: var(--light-text-color);
@@ -486,6 +490,7 @@ body.dark .slider__btn:hover {
 }
 
 .download__btn {
+  display: block;
   width: 200px;
   padding: 12px 0 12px 64px;
   border-radius: 100px;
@@ -495,6 +500,7 @@ body.dark .slider__btn:hover {
   line-height: 140%;
   text-align: left;
   border: 1px solid var(--border-color);
+  transition: 0.4s ease-in;
 }
 
 .download__btn-title {
