@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Coffee House is a cozy place to enjoy freshly brewed coffee and delicious desserts. Explore our menu and find your perfect coffee."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,16 +28,16 @@
           ></a>
           <ul class="header__menu">
             <li class="header__menu-item">
-              <a href="" class="header__link">Favorite coffe</a>
+              <a href="#favorite" class="header__link">Favorite coffe</a>
             </li>
             <li class="header__menu-item">
-              <a href="" class="header__link">About</a>
+              <a href="#about" class="header__link">About</a>
             </li>
             <li class="header__menu-item">
-              <a href="" class="header__link">Mobile app</a>
+              <a href="#app" class="header__link">Mobile app</a>
             </li>
             <li class="header__menu-item">
-              <a href="" class="header__link">Contact us</a>
+              <a href="#contacts" class="header__link">Contact us</a>
             </li>
           </ul>
           <div class="header__settings">
@@ -41,10 +45,12 @@
               <button
                 class="header__toggle-btn header__toggle-light header__toggle-active"
                 id="light"
+                aria-label="Light theme"
               ></button>
               <button
                 class="header__toggle-btn header__toggle-dark"
                 id="dark"
+                aria-label="Dark theme"
               ></button>
             </div>
             <a href="menu.html" class="header__menu-btn">Menu</a>
@@ -68,13 +74,13 @@
                 and those seeking a warm and inviting space to enjoy their
                 favorite beverage.
               </p>
-              <button class="hero__btn">Menu</button>
+              <a href="menu.html" class="hero__btn">Menu</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="choose">
+      <section class="choose" id="favorite">
         <div class="container">
           <div class="choose__content">
             <h2 class="section__title">
@@ -103,20 +109,27 @@
               <div class="slider__controls">
                 <button
                   class="slider__controls-item slider__controls-item_active"
+                  aria-label="Slide button"
                 ></button>
-                <button class="slider__controls-item"></button>
-                <button class="slider__controls-item"></button>
+                <button
+                  class="slider__controls-item"
+                  aria-label="Slide button"
+                ></button>
+                <button
+                  class="slider__controls-item"
+                  aria-label="Slide button"
+                ></button>
               </div>
               <div class="slider__buttons">
-                <button class="slider__btn" aria-label="prev slide"></button>
-                <button class="slider__btn" aria-label="next slide"></button>
+                <button class="slider__btn" aria-label="Prev slide"></button>
+                <button class="slider__btn" aria-label="Next slide"></button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <h2 class="section__title">
             Resource is
@@ -157,7 +170,7 @@
         </div>
       </section>
 
-      <section class="download">
+      <section class="download" id="app">
         <div class="container">
           <div class="download__container">
             <div class="download__content">
@@ -170,14 +183,24 @@
                 ordering your favorite coffee from wherever you are
               </p>
               <div class="download__buttons">
-                <button class="download__btn download__btn_mac">
+                <a
+                  href="https://www.apple.com/"
+                  target="_blank"
+                  class="download__btn download__btn_mac"
+                  rel="noopener noreferrer"
+                >
                   Available on the
                   <span class="download__btn-title">App Store</span>
-                </button>
-                <button class="download__btn download__btn_google">
+                </a>
+                <a
+                  href="https://play.google.com/store"
+                  target="_blank"
+                  class="download__btn download__btn_google"
+                  rel="noopener noreferrer"
+                >
                   Available on
                   <span class="download__btn-title">Google Play</span>
-                </button>
+                </a>
               </div>
             </div>
             <div class="download__img-wrapper">
@@ -192,7 +215,7 @@
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" id="contacts">
       <div class="container">
         <div class="footer__content">
           <div class="footer__item">
@@ -202,13 +225,28 @@
             </h2>
             <ul class="footer__social">
               <li class="footer__social-item">
-                <a href="" class="footer__social-link" aria-label=""></a>
+                <a
+                  href="https://x.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Twitter"
+                ></a>
               </li>
               <li class="footer__social-item">
-                <a href="" class="footer__social-link" aria-label=""></a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Instagram"
+                ></a>
               </li>
               <li class="footer__social-item">
-                <a href="" class="footer__social-link" aria-label=""></a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Facebook"
+                ></a>
               </li>
             </ul>
           </div>
@@ -216,13 +254,21 @@
             <h3 class="footer__contact-title">Contact us</h3>
             <ul class="footer__contacts-list">
               <li class="footer__contacts-item">
-                <a href="" class="footer__contacts-link">8558 Green Rd., LA</a>
+                <a
+                  href="https://maps.app.goo.gl/tWDYdVg9bTQP6V7FA"
+                  target="_blank"
+                  class="footer__contacts-link"
+                >
+                  8558 Green Rd., LA
+                </a>
               </li>
               <li class="footer__contacts-item">
-                <a href="" class="footer__contacts-link">+1 (603) 555-0123</a>
+                <a href="tel:+16035550123" class="footer__contacts-link">
+                  +1 (603) 555-0123
+                </a>
               </li>
               <li class="footer__contacts-item">
-                <a href="" class="footer__contacts-link">Mon–Sat: 9:00–23:00</a>
+                <p class="footer__contacts-link">Mon–Sat: 9:00–23:00</p>
               </li>
             </ul>
           </div>
