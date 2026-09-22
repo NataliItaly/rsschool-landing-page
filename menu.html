@@ -58,148 +58,30 @@
         <div class="container">
           <div class="tabs__container">
             <div class="tabs__content">
-              <h1 class="tabs__title">
+              <h1 class="section__title tabs__title">
                 Behind each of our cups hides an
                 <span class="text_accent">amazing surprise</span>
               </h1>
-              <ul class="tabs__list">
-                <li class="tabs__item">
-                  <button class="tabs__btn tabs__btn_active" id="coffee-btn">
-                    <span class="tabs__btn-label"></span>
-                    Coffee
-                  </button>
-                </li>
-                <li class="tabs__item">
-                  <button class="tabs__btn" id="tea-btn">
-                    <span class="tabs__btn-label"></span>
-                    Tea
-                  </button>
-                </li>
-                <li class="tabs__item">
-                  <button class="tabs__btn" id="desert-btn">
-                    <span class="tabs__btn-label"></span>
-                    Desert
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="choose">
-        <div class="container">
-          <div class="choose__content">
-            <h2 class="section__title">
-              Choose your
-              <span class="text_accent">favorite</span>
-              coffee
-            </h2>
-            <div class="choose__slider slider">
-              <ul class="slider__list">
-                <li class="slider__item">
-                  <img
-                    src="./assets/images/slider/coffee-slider-1.png"
-                    alt="S’mores Frappuccino"
-                    class="slider__img"
-                  />
-                  <div class="slider__content">
-                    <p class="slider__item-title">S’mores Frappuccino</p>
-                    <p class="slider__item-text">
-                      This new drink takes an espresso and mixes it with brown
-                      sugar and cinnamon before being topped with oat milk.
-                    </p>
-                    <p class="slider__item-price">$5.50</p>
-                  </div>
-                </li>
-              </ul>
-              <div class="slider__controls">
-                <button
-                  class="slider__controls-item slider__controls-item_active"
-                ></button>
-                <button class="slider__controls-item"></button>
-                <button class="slider__controls-item"></button>
-              </div>
-              <div class="slider__buttons">
-                <button class="slider__btn" aria-label="prev slide"></button>
-                <button class="slider__btn" aria-label="next slide"></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about">
-        <div class="container">
-          <h2 class="section__title">
-            Resource is
-            <span class="text_accent">the perfect and cozy place</span>
-            where you can enjoy a variety of hot beverages, relax, catch up with
-            friends, or get some work done.
-          </h2>
-          <ul class="about__gallery">
-            <li class="about__gallery-item">
-              <img
-                src="./assets/images/about/about-1.png"
-                alt="Woman with capuccino cup"
-                class="about__gallery-img"
-              />
-            </li>
-            <li class="about__gallery-item">
-              <img
-                src="./assets/images/about/about-2.png"
-                alt="coffee cup and lights on background"
-                class="about__gallery-img"
-              />
-            </li>
-            <li class="about__gallery-item">
-              <img
-                src="./assets/images/about/about-3.png"
-                alt="Man with a coffee cup"
-                class="about__gallery-img"
-              />
-            </li>
-            <li class="about__gallery-item">
-              <img
-                src="./assets/images/about/about-4.png"
-                alt="Couple with tea cups"
-                class="about__gallery-img"
-              />
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="download">
-        <div class="container">
-          <div class="download__container">
-            <div class="download__content">
-              <h2 class="section__title download__title">
-                <span class="text_accent">Download</span>
-                our app to start ordering
-              </h2>
-              <p class="download__text">
-                Download the Resource app today and experience the comfort of
-                ordering your favorite coffee from wherever you are
-              </p>
-              <div class="download__buttons">
-                <button class="download__btn download__btn_mac">
-                  Available on the
-                  <span class="download__btn-title">App Store</span>
+              <div class="tabs__buttons">
+                <button class="tabs__btn tabs__btn_active" id="coffee-btn">
+                  <span class="tabs__btn-label"></span>
+                  Coffee
                 </button>
-                <button class="download__btn download__btn_google">
-                  Available on
-                  <span class="download__btn-title">Google Play</span>
+                <button class="tabs__btn" id="tea-btn">
+                  <span class="tabs__btn-label"></span>
+                  Tea
+                </button>
+                <button class="tabs__btn" id="desert-btn">
+                  <span class="tabs__btn-label"></span>
+                  Desert
                 </button>
               </div>
             </div>
-            <div class="download__img-wrapper">
-              <img
-                src="./assets/download-bg.png"
-                alt="Two mobile screens with Coffe House App open"
-                class="download__img"
-              />
-            </div>
+          </div>
+          <div class="tabs__wrapper" id="tabs-wrapper">
+            <ul class="tabs__list" id="coffee-tab"></ul>
+            <ul class="tabs__list" id="tea-tab"></ul>
+            <ul class="tabs__list" id="desert-tab"></ul>
           </div>
         </div>
       </section>

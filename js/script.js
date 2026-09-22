@@ -1,3 +1,5 @@
+import setProducts from './setProducts.js';
+
 const themeSwitch = document.getElementById('theme-switch');
 
 themeSwitch.addEventListener('click', function (e) {
@@ -9,3 +11,5 @@ themeSwitch.addEventListener('click', function (e) {
   themeBtns.forEach((btn) => btn.classList.remove('header__toggle-active'));
   e.target.classList.add('header__toggle-active');
 });
+
+setProducts();
