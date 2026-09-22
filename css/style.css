@@ -81,6 +81,8 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
+  position: relative;
 }
 
 .header__logo {
@@ -113,6 +115,7 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 24px;
+  margin-left: auto;
 }
 
 .header__menu-btn {
@@ -208,6 +211,41 @@ button {
 .header__toggle-dark:hover {
   background: url(../assets/icons/moon-active.svg) no-repeat center / 18px
     var(--light-border-color);
+}
+
+.header__burger {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #665f55;
+  border-radius: 50%;
+  background: transparent;
+  display: none;
+}
+
+.header__burger-line {
+  display: block;
+  width: 16px;
+  height: 1px;
+  background: var(--text-color);
+  transition: 0.4s ease-in;
+}
+
+.header__burger_active .header__burger-line {
+  animation: openBurger 1s forwards;
+}
+
+@keyframes openBurger {
+  40% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(50%) rotate(45deg);
+  }
 }
 
 .hero__container {
@@ -548,6 +586,13 @@ body.dark .slider__btn:hover {
   background: #403f3d;
 }
 
+@media (max-width: 1100px) {
+  .footer__content {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
 .footer__item {
   max-width: 530px;
   display: flex;
@@ -673,6 +718,10 @@ body.dark .footer__social-item:nth-of-type(3) .footer__social-link:hover {
   background: url(../assets/icons/clock.svg) no-repeat center left / 20px;
 }
 
+.tabs {
+  padding-bottom: 100px;
+}
+
 .tabs__title {
   max-width: 800px;
   text-align: center;
@@ -794,4 +843,25 @@ body.dark .footer__social-item:nth-of-type(3) .footer__social-link:hover {
   font-weight: 600;
   font-size: 24px;
   line-height: 125%;
+}
+
+@media (max-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+}
+
+@media (max-width: 680px) {
+  .section__title,
+  .footer__title {
+    font-size: 32px;
+  }
+
+  .footer__content {
+    padding: 60px 16px;
+  }
 }
