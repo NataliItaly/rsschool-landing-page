@@ -55,7 +55,9 @@
                 aria-label="Dark theme"
               ></button>
             </div>
-            <a href="menu.html" class="header__menu-btn">Menu</a>
+            <a href="menu.html" class="header__menu-btn" id="catalog-link">
+              Menu
+            </a>
           </div>
           <button class="header__burger" id="burger-btn" aria-label="Open menu">
             <span class="header__burger-line"></span>
@@ -74,16 +76,20 @@
                 Behind each of our cups hides an
                 <span class="text_accent">amazing surprise</span>
               </h1>
-              <div class="tabs__buttons">
-                <button class="tabs__btn tabs__btn_active" id="coffee-btn">
+              <div class="tabs__buttons" id="tabs-btn-wrapper">
+                <button
+                  class="tabs__btn tabs__btn_active"
+                  id="coffee-btn"
+                  data-tab="coffee"
+                >
                   <span class="tabs__btn-label"></span>
                   Coffee
                 </button>
-                <button class="tabs__btn" id="tea-btn">
+                <button class="tabs__btn" id="tea-btn" data-tab="tea">
                   <span class="tabs__btn-label"></span>
                   Tea
                 </button>
-                <button class="tabs__btn" id="desert-btn">
+                <button class="tabs__btn" id="desert-btn" data-tab="desert">
                   <span class="tabs__btn-label"></span>
                   Desert
                 </button>
@@ -91,9 +97,14 @@
             </div>
           </div>
           <div class="tabs__wrapper" id="tabs-wrapper">
-            <ul class="tabs__list" id="coffee-tab"></ul>
+            <ul class="tabs__list tabs__list_active" id="coffee-tab"></ul>
             <ul class="tabs__list" id="tea-tab"></ul>
             <ul class="tabs__list" id="desert-tab"></ul>
+            <button
+              class="tabs__refresh-btn"
+              id="refresh-btn"
+              aria-label="Refresh current tab"
+            ></button>
           </div>
         </div>
       </section>
