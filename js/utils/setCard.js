@@ -1,4 +1,6 @@
 export default function setCard(key, product, i) {
+  //console.log('from setCard: key', key, 'product', product);
+
   return `
     <li class="tabs__card card">
       <div class="card__img-wrapper">
