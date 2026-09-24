@@ -8,6 +8,13 @@ export default function setCardList(parent, key) {
   const data = getTabState().products;
   const currentStateData = data.find((el) => el[key]);
 
+  const refreshBtn = document.getElementById('refresh-btn');
+  if (currentStateData[key].length > 4 && isMobile) {
+    refreshBtn.classList.add('tabs__refresh-btn_visible');
+  } else {
+    refreshBtn.classList.remove('tabs__refresh-btn_visible');
+  }
+
   const currentData = isMobile
     ? currentStateData[key].slice(0, 4)
     : currentStateData[key];
@@ -15,13 +22,6 @@ export default function setCardList(parent, key) {
   const cardsData = currentData.map((item, i) => setCard(key, item, i));
 
   const cards = cardsData.join('');
-
-  const refreshBtn = document.getElementById('refresh-btn');
-  if (cardsData.length > 4) {
-    refreshBtn.classList.add('tabs__refresh-btn_visible');
-  } else {
-    refreshBtn.classList.remove('tabs__refresh-btn_visible');
-  }
 
   parent.innerHTML = '';
   parent.insertAdjacentHTML('afterbegin', cards);

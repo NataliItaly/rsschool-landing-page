@@ -1,4 +1,3 @@
-import isMobileDevice from './utils/isMobileDevice.js';
 import { getTabState } from './states.js';
 import setCardList from './utils/setCardList.js';
 

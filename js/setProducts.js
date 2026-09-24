@@ -4,18 +4,6 @@ export default async function setProducts() {
   const products = await fetchData();
 
   setTabState({ products });
-  /* const tabsWrapper = document.getElementById('tabs-wrapper');
-
-  if (tabsWrapper && products) {
-    products.forEach((product, i) => {
-      const key = Object.keys(product)[0];
-      const parent = getParent(key);
-
-      setCardList(parent, key, product[key]);
-    });
-
-    setActiveTab();
-  } */
 }
 
 async function fetchData() {
