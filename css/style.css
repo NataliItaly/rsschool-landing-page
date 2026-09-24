@@ -110,6 +110,32 @@ button {
   gap: 40px;
 }
 
+.header__link {
+  position: relative;
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: 0.5s ease-in;
+}
+
+.light .header__link::after {
+  background: #403f3d;
+}
+
+.dark .header__link::after {
+  background: #e1d4c9;
+}
+
+.header__link:hover::after {
+  width: 100%;
+}
+
 .header__settings {
   display: flex;
   justify-content: space-between;
@@ -159,11 +185,15 @@ button {
 .dark .header__menu-btn::after {
   background: #e1d4c9;
 }
-
+/*
 @media (hover: none) and (pointer: coarse) {
   .header__menu-btn:hover::after {
     width: 100%;
   }
+} */
+
+.header__menu-btn:hover::after {
+  width: 100%;
 }
 
 .header__toggle {
@@ -196,11 +226,9 @@ button {
     #b0907a;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .header__toggle-light:hover {
-    background: url(../assets/icons/sun-active.svg) no-repeat center / 22px
-      var(--light-border-color);
-  }
+.header__toggle-light:hover {
+  background: url(../assets/icons/sun-active.svg) no-repeat center / 22px
+    var(--light-border-color);
 }
 
 .header__toggle-dark {
@@ -212,11 +240,9 @@ button {
     #b0907a;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .header__toggle-dark:hover {
-    background: url(../assets/icons/moon-active.svg) no-repeat center / 18px
-      var(--light-border-color);
-  }
+.header__toggle-dark:hover {
+  background: url(../assets/icons/moon-active.svg) no-repeat center / 18px
+    var(--light-border-color);
 }
 
 .header__burger {
@@ -312,10 +338,8 @@ body.dark .hero__btn::after {
   background: url(../assets/icons/coffee-cup-dark.svg) no-repeat center / 20px;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .hero__btn:hover::after {
-    width: 20px;
-  }
+.hero__btn:hover::after {
+  width: 20px;
 }
 
 .choose__content {
@@ -431,13 +455,11 @@ body.dark .slider__btn {
   background: url(../assets/icons/arrow-dark.svg) no-repeat center / 12px;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  body.light .slider__btn:hover,
-  body.dark .slider__btn:hover {
-    background: url(../assets/icons/arrow-dark.svg) no-repeat center / 12px
-      var(--hover-color);
-    border-color: var(--hover-color);
-  }
+body.light .slider__btn:hover,
+body.dark .slider__btn:hover {
+  background: url(../assets/icons/arrow-dark.svg) no-repeat center / 12px
+    var(--hover-color);
+  border-color: var(--hover-color);
 }
 
 .slider__btn:last-of-type {
@@ -478,10 +500,8 @@ body.dark .slider__btn {
   transform: scale(1.2);
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .about__gallery-item:hover .about__gallery-img {
-    transform: scale(1);
-  }
+.about__gallery-item:hover .about__gallery-img {
+  transform: scale(1);
 }
 
 @media (max-width: 1290px) {
@@ -554,26 +574,38 @@ body.dark .slider__btn {
   line-height: 150%;
 }
 
-.download__btn_mac {
+body.light .download__btn_mac {
   background: url(../assets/icons/mac-icon.svg) no-repeat 20px center / 36px;
 }
 
-.download__btn_google {
+body.light .download__btn_google {
   background: url(../assets/icons/google-icon.svg) no-repeat 20px center / 36px;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .download__btn_mac:hover {
-    background: url(../assets/icons/mac-icon-hover.svg) no-repeat 20px center /
-      36px var(--hover-color);
-    color: var(--text-inverse-color);
-  }
+body.dark .download__btn_mac {
+  background: url(../assets/icons/mac-icon-dark.svg) no-repeat 20px center /
+    36px;
+}
 
-  .download__btn_google:hover {
-    background: url(../assets/icons/google-icon-hover.svg) no-repeat 20px
-      center / 36px var(--hover-color);
-    color: var(--text-inverse-color);
-  }
+body.dark .download__btn_google {
+  background: url(../assets/icons/google-icon-dark.svg) no-repeat 20px center /
+    36px;
+}
+
+body.light .download__btn_mac:hover,
+body.dark .download__btn_mac:hover {
+  background: url(../assets/icons/mac-icon-hover.svg) no-repeat 20px center /
+    36px var(--hover-color);
+  color: var(--text-inverse-color);
+  border-color: var(--hover-color);
+}
+
+body.light .download__btn_google:hover,
+body.dark .download__btn_google:hover {
+  background: url(../assets/icons/google-icon-hover.svg) no-repeat 20px center /
+    36px var(--hover-color);
+  color: var(--text-inverse-color);
+  border-color: var(--hover-color);
 }
 
 .download__img-wrapper {
@@ -643,36 +675,34 @@ body.dark .slider__btn {
   background: url(../assets/icons/facebook.svg) no-repeat center / 24px;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  body.light .footer__social-item:nth-of-type(1) .footer__social-link:hover {
-    background: url(../assets/icons/twitter-hover.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.light .footer__social-item:nth-of-type(1) .footer__social-link:hover {
+  background: url(../assets/icons/twitter-hover.svg) no-repeat center / 24px
+    var(--bg-color);
+}
 
-  body.light .footer__social-item:nth-of-type(2) .footer__social-link:hover {
-    background: url(../assets/icons/instagram-hover.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.light .footer__social-item:nth-of-type(2) .footer__social-link:hover {
+  background: url(../assets/icons/instagram-hover.svg) no-repeat center / 24px
+    var(--bg-color);
+}
 
-  body.light .footer__social-item:nth-of-type(3) .footer__social-link:hover {
-    background: url(../assets/icons/facebook-hover.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.light .footer__social-item:nth-of-type(3) .footer__social-link:hover {
+  background: url(../assets/icons/facebook-hover.svg) no-repeat center / 24px
+    var(--bg-color);
+}
 
-  body.dark .footer__social-item:nth-of-type(1) .footer__social-link:hover {
-    background: url(../assets/icons/twitter.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.dark .footer__social-item:nth-of-type(1) .footer__social-link:hover {
+  background: url(../assets/icons/twitter.svg) no-repeat center / 24px
+    var(--bg-color);
+}
 
-  body.dark .footer__social-item:nth-of-type(2) .footer__social-link:hover {
-    background: url(../assets/icons/instagram.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.dark .footer__social-item:nth-of-type(2) .footer__social-link:hover {
+  background: url(../assets/icons/instagram.svg) no-repeat center / 24px
+    var(--bg-color);
+}
 
-  body.dark .footer__social-item:nth-of-type(3) .footer__social-link:hover {
-    background: url(../assets/icons/facebook.svg) no-repeat center / 24px
-      var(--bg-color);
-  }
+body.dark .footer__social-item:nth-of-type(3) .footer__social-link:hover {
+  background: url(../assets/icons/facebook.svg) no-repeat center / 24px
+    var(--bg-color);
 }
 
 .footer {
@@ -712,10 +742,8 @@ body.dark .slider__btn {
   transition: 0.4s ease-in;
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .footer__contacts-link:hover::after {
-    width: 100%;
-  }
+.footer__contacts-link:hover::after {
+  width: 100%;
 }
 
 .footer__contacts-item:nth-of-type(1) .footer__contacts-link {
@@ -788,15 +816,13 @@ body.dark .slider__btn {
   color: var(--light-bg-color);
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .tabs__btn:hover {
-    background: var(--light-border-color);
-    color: var(--light-bg-color);
-  }
+.tabs__btn:hover {
+  background: var(--light-border-color);
+  color: var(--light-bg-color);
+}
 
-  .tabs__btn:hover .tabs__btn-label {
-    background-color: var(--bg-color);
-  }
+.tabs__btn:hover .tabs__btn-label {
+  background-color: var(--bg-color);
 }
 
 .tabs__list {
