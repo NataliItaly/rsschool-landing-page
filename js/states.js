@@ -1,4 +1,4 @@
-import setActiveTab from './setActiveTab.js';
+import setActiveTab from './utils/setActiveTab.js';
 
 const currentTheme = {
   theme: 'light',

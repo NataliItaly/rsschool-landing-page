@@ -1,4 +1,4 @@
-import { getTabState, setTabState } from './states.js';
+import { getTabState, setTabState } from '../states.js';
 
 export default async function setProducts() {
   const products = await fetchData();

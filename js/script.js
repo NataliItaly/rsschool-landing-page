@@ -1,8 +1,9 @@
-import setActiveTab from './setActiveTab.js';
-import setProducts from './setProducts.js';
+import setActiveTab from './utils/setActiveTab.js';
+import setProducts from './utils/setProducts.js';
 import { getTheme, setTheme } from './states.js';
 import setTabButtons from './utils/setTabButtons.js';
 import setRefreshBtn from './utils/setRefreshBtn.js';
+import setBurger from './utils/setBurger.js';
 
 const currentTheme = getTheme();
 setTheme(currentTheme);
@@ -16,6 +17,7 @@ themeSwitch.addEventListener('click', function (e) {
 
 setProducts();
 setTabButtons();
+setBurger();
 
 window.addEventListener('DOMContentLoaded', function () {
   setRefreshBtn();
