@@ -1,6 +1,7 @@
-import setProducts from './setProducts.js';
 import setActiveTab from './setActiveTab.js';
+import setProducts from './setProducts.js';
 import { getTheme, setTheme } from './states.js';
+import setRefreshBtn from './utils/setRefreshBtn.js';
 
 const currentTheme = getTheme();
 setTheme(currentTheme);
@@ -13,3 +14,8 @@ themeSwitch.addEventListener('click', function (e) {
 });
 
 setProducts();
+
+window.addEventListener('DOMContentLoaded', function () {
+  setRefreshBtn();
+});
+//setActiveTab();

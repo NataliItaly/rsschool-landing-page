@@ -1,3 +1,5 @@
+import isMobileDevice from './utils/isMobileDevice.js';
+
 export default function setActiveTab() {
   const tabsButtons = document.getElementById('tabs-btn-wrapper');
 
@@ -17,9 +19,12 @@ export default function setActiveTab() {
           if (tab.id === `${currentLabel}-tab`) {
             tab.classList.add('tabs__list_active');
 
-            if (tab.children.length > 4) {
-              const refreshBtn = document.getElementById('refresh-btn');
+            const isMobile = isMobileDevice();
+            const refreshBtn = document.getElementById('refresh-btn');
+            if (isMobile && tab.children.length > 4) {
               refreshBtn.classList.add('tabs__refresh-btn_visible');
+            } else {
+              refreshBtn.classList.remove('tabs__refresh-btn_visible');
             }
           } else {
             tab.classList.remove('tabs__list_active');
