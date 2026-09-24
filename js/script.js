@@ -20,4 +20,4 @@ setTabButtons();
 window.addEventListener('DOMContentLoaded', function () {
   setRefreshBtn();
 });
-//setActiveTab();
+setActiveTab();

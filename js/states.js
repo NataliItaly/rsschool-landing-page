@@ -33,14 +33,12 @@ export function getTabState() {
 
 export function setTabState(obj) {
   for (const key in tabState) {
-    //console.log(Object.keys(obj));
     const currentKey = Object.keys(obj).find((el) => el === key);
-    //console.log('currentKey', currentKey);
     if (currentKey) {
       tabState[key] = obj[currentKey];
     }
   }
-  console.log(tabState);
+
   localStorage.setItem('tabState', JSON.stringify(tabState));
 
   const tabBtns = document.querySelectorAll('.tabs__btn');
