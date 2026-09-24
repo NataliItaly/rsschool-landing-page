@@ -1,11 +1,10 @@
-import setCardList from './utils/setCardList.js';
-import getParent from './utils/getParent.js';
-import setActiveTab from './setActiveTab.js';
+import { getTabState, setTabState } from './states.js';
 
 export default async function setProducts() {
   const products = await fetchData();
 
-  const tabsWrapper = document.getElementById('tabs-wrapper');
+  setTabState({ products });
+  /* const tabsWrapper = document.getElementById('tabs-wrapper');
 
   if (tabsWrapper && products) {
     products.forEach((product, i) => {
@@ -16,7 +15,7 @@ export default async function setProducts() {
     });
 
     setActiveTab();
-  }
+  } */
 }
 
 async function fetchData() {

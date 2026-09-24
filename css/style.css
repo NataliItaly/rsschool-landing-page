@@ -191,7 +191,7 @@ button {
   background: url(../assets/icons/sun.svg) no-repeat center / 22px;
 }
 
-.header__toggle-light.header__toggle-active {
+.header__toggle-light.header__toggle_active {
   background: url(../assets/icons/sun-active.svg) no-repeat center / 22px
     #b0907a;
 }
@@ -207,7 +207,7 @@ button {
   background: url(../assets/icons/moon.svg) no-repeat center / 18px;
 }
 
-.header__toggle-dark.header__toggle-active {
+.header__toggle-dark.header__toggle_active {
   background: url(../assets/icons/moon-active.svg) no-repeat center / 18px
     #b0907a;
 }

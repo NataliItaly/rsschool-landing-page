@@ -1,3 +1,5 @@
+import setActiveTab from './setActiveTab.js';
+
 const currentTheme = {
   theme: 'light',
 };
@@ -14,28 +16,39 @@ export function setTheme(value) {
 
   const themeBtns = document.querySelectorAll('.header__toggle-btn');
   themeBtns.forEach((btn) => {
-    if (btn.id !== value) btn.classList.remove('header__toggle-active');
-    else btn.classList.add('header__toggle-active');
+    if (btn.id !== value) btn.classList.remove('header__toggle_active');
+    else btn.classList.add('header__toggle_active');
   });
 }
 
-const currentTab = {
+const tabState = {
+  products: [],
   tab: 'coffee',
+  visibleItems: 4,
 };
 
-export function getTab() {
-  return JSON.parse(localStorage.getItem('tab')) || currentTab.tab;
+export function getTabState() {
+  return JSON.parse(localStorage.getItem('tabState')) || tabState;
 }
 
-export function setTab(value) {
-  currentTab.tab = value;
-  localStorage.setItem('tab', JSON.stringify(value));
-  document.body.classList.remove(`${value === 'light' ? 'dark' : 'light'}`);
-  document.body.classList.add(value);
+export function setTabState(obj) {
+  for (const key in tabState) {
+    //console.log(Object.keys(obj));
+    const currentKey = Object.keys(obj).find((el) => el === key);
+    //console.log('currentKey', currentKey);
+    if (currentKey) {
+      tabState[key] = obj[currentKey];
+    }
+  }
+  console.log(tabState);
+  localStorage.setItem('tabState', JSON.stringify(tabState));
 
-  const themeBtns = document.querySelectorAll('.header__toggle-btn');
-  themeBtns.forEach((btn) => {
-    if (btn.id !== value) btn.classList.remove('header__toggle-active');
-    else btn.classList.add('header__toggle-active');
+  const tabBtns = document.querySelectorAll('.tabs__btn');
+  tabBtns.forEach((btn) => {
+    if (btn.dataset.tab !== tabState.tab)
+      btn.classList.remove('tabs__btn_active');
+    else btn.classList.add('tabs__btn_active');
   });
+
+  setActiveTab();
 }
