@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Coffee House is a cozy place to enjoy freshly brewed coffee and delicious desserts. Explore our menu and find your perfect coffee."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
+    <title>Coffe House Menu</title>
+  </head>
+  <body class="light">
+    <header class="header">
+      <div class="container">
+        <nav class="header__nav">
+          <a
+            href="index.html"
+            class="header__logo"
+            aria-label="Resource Coffe House Logo"
+          ></a>
+          <ul class="header__menu">
+            <li class="header__menu-item">
+              <a href="index.html#favorite" class="header__link">
+                Favorite coffe
+              </a>
+            </li>
+            <li class="header__menu-item">
+              <a href="index.html#about" class="header__link">About</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="index.html#app" class="header__link">Mobile app</a>
+            </li>
+            <li class="header__menu-item">
+              <a href="index.html#contacts" class="header__link">Contact us</a>
+            </li>
+          </ul>
+          <div class="header__settings">
+            <div class="header__toggle" id="theme-switch">
+              <button
+                class="header__toggle-btn header__toggle-light header__toggle_active"
+                id="light"
+                aria-label="Light theme"
+              ></button>
+              <button
+                class="header__toggle-btn header__toggle-dark"
+                id="dark"
+                aria-label="Dark theme"
+              ></button>
+            </div>
+            <a href="menu.html" class="header__menu-btn" id="catalog-link">
+              Menu
+            </a>
+          </div>
+          <button class="header__burger" id="burger-btn" aria-label="Open menu">
+            <span class="header__burger-line"></span>
+            <span class="header__burger-line"></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="tabs">
+        <div class="container">
+          <div class="tabs__container">
+            <div class="tabs__content">
+              <h1 class="section__title tabs__title">
+                Behind each of our cups hides an
+                <span class="text_accent">amazing surprise</span>
+              </h1>
+              <div class="tabs__buttons" id="tabs-btn-wrapper">
+                <button
+                  class="tabs__btn tabs__btn_active"
+                  id="coffee-btn"
+                  data-tab="coffee"
+                >
+                  <span class="tabs__btn-label"></span>
+                  Coffee
+                </button>
+                <button class="tabs__btn" id="tea-btn" data-tab="tea">
+                  <span class="tabs__btn-label"></span>
+                  Tea
+                </button>
+                <button class="tabs__btn" id="desert-btn" data-tab="desert">
+                  <span class="tabs__btn-label"></span>
+                  Desert
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="tabs__wrapper" id="tabs-wrapper">
+            <ul class="tabs__list tabs__list_active" id="coffee-tab"></ul>
+            <ul class="tabs__list" id="tea-tab"></ul>
+            <ul class="tabs__list" id="desert-tab"></ul>
+            <button
+              class="tabs__refresh-btn"
+              id="refresh-btn"
+              aria-label="Refresh current tab"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contacts">
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__item">
+            <h2 class="footer__title">
+              Sip, Savor, Smile.
+              <span class="text_accent">It’s coffee time!</span>
+            </h2>
+            <ul class="footer__social">
+              <li class="footer__social-item">
+                <a
+                  href="https://x.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Twitter"
+                ></a>
+              </li>
+              <li class="footer__social-item">
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Instagram"
+                ></a>
+              </li>
+              <li class="footer__social-item">
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  class="footer__social-link"
+                  aria-label="Facebook"
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__item">
+            <h3 class="footer__contact-title">Contact us</h3>
+            <ul class="footer__contacts-list">
+              <li class="footer__contacts-item">
+                <a
+                  href="https://maps.app.goo.gl/tWDYdVg9bTQP6V7FA"
+                  target="_blank"
+                  class="footer__contacts-link"
+                >
+                  8558 Green Rd., LA
+                </a>
+              </li>
+              <li class="footer__contacts-item">
+                <a href="tel:+16035550123" class="footer__contacts-link">
+                  +1 (603) 555-0123
+                </a>
+              </li>
+              <li class="footer__contacts-item">
+                <p class="footer__contacts-link">Mon–Sat: 9:00–23:00</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
