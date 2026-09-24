@@ -1,29 +1,21 @@
 import setCardList from './utils/setCardList.js';
+import getParent from './utils/getParent.js';
+import setActiveTab from './setActiveTab.js';
 
 export default async function setProducts() {
   const products = await fetchData();
 
   const tabsWrapper = document.getElementById('tabs-wrapper');
-  if (tabsWrapper) {
-    const coffeeProducts = products[0].coffee;
-    const teaProducts = products[1].tea;
-    const desertProducts = products[2].desert;
 
-    const coffeeTab = document.getElementById('coffee-tab');
-    const teaTab = document.getElementById('tea-tab');
-    const desertTab = document.getElementById('desert-tab');
+  if (tabsWrapper && products) {
+    products.forEach((product, i) => {
+      const key = Object.keys(product)[0];
+      const parent = getParent(key);
 
-    if (products) {
-      products.forEach((product, i) => {
-        const key = Object.keys(product)[0];
-        let parent;
-        if (key === 'coffee') parent = coffeeTab;
-        if (key === 'tea') parent = teaTab;
-        if (key === 'desert') parent = desertTab;
+      setCardList(parent, key, product[key]);
+    });
 
-        setCardList(parent, key, product[key]);
-      });
-    }
+    setActiveTab();
   }
 }
 
