@@ -396,16 +396,24 @@ body.dark .hero__btn::after {
 }
 
 .slider {
+  width: 100%;
   position: relative;
 }
 
-.slider__list {
-  max-width: 480px;
+.slider__wrapper {
+  width: 480px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
+.slider__list {
+  width: fit-content;
+  display: flex;
+  transition: 0.5s ease-in;
+}
+
 .slider__item {
-  max-width: 480px;
+  width: 480px;
   margin-bottom: 40px;
 }
 
@@ -487,12 +495,28 @@ body.dark .slider__controls-item_active {
   transition: 0.4s ease-in;
 }
 
+.slider__btn:disabled {
+  pointer-events: none;
+}
+
 body.light .slider__btn {
   background: url(../assets/icons/arrow-light.svg) no-repeat center / 12px;
 }
 
 body.dark .slider__btn {
   background: url(../assets/icons/arrow-dark.svg) no-repeat center / 12px;
+}
+
+body.light .slider__btn:disabled {
+  background: url(../assets/icons/arrow-disabled-light.svg) no-repeat center /
+    14px;
+  border-color: var(--dark-border-color);
+}
+
+body.dark .slider__btn:disabled {
+  background: url(../assets/icons/arrow-disabled-dark.svg) no-repeat center /
+    12px;
+  border-color: var(--dark-footer-bg);
 }
 
 @media (hover: hover) {
@@ -971,6 +995,7 @@ body.dark .tabs__refresh-btn {
     height: calc(100vh - 100px);
     flex-direction: column;
     background: var(--bg-color);
+    padding: 50px 0;
     transform: translateX(200%);
   }
 
@@ -978,11 +1003,30 @@ body.dark .tabs__refresh-btn {
     transform: translateX(0);
   }
 
-  .header__link {
+  .header__link,
+  .header__menu-btn {
     font-weight: 600;
     font-size: 32px;
     line-height: 125%;
+  }
+
+  .header__link {
     text-align: center;
+  }
+
+  .header__menu-btn {
+    width: 145px;
+    margin: 0;
+  }
+
+  .light .header__menu-btn {
+    background: url(../assets/icons/coffee-cup-light.svg) no-repeat center
+      right / 44px;
+  }
+
+  .dark .header__menu-btn {
+    background: url(../assets/icons/coffee-cup-dark.svg) no-repeat center
+      right / 44px;
   }
 
   .header__list {
@@ -1003,6 +1047,16 @@ body.dark .tabs__refresh-btn {
   .about__gallery-item:nth-child(2),
   .about__gallery-item:nth-child(3) {
     display: none;
+  }
+}
+
+@media (max-width: 630px) {
+  .slider__wrapper {
+    width: 348px;
+  }
+
+  .slider__item {
+    width: 348px;
   }
 }
 
