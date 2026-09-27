@@ -2,6 +2,7 @@ import getMatrixValue from './getMatrixValue.js';
 import fetchData from './fetchData.js';
 import sliderItem from './sliderItem.js';
 import setSliderButtons from './setSliderButtons.js';
+import setControls from './setControls.js';
 
 export default async function setSlider() {
   const sliderList = document.querySelector('.slider__list');
@@ -9,7 +10,7 @@ export default async function setSlider() {
   let count = 0;
 
   if (sliders) {
-    const sliderItemsHtml = sliders.map((item) => sliderItem(item));
+    const sliderItemsHtml = sliders.map((item) => sliderItem(item)).join('');
     sliderList.innerHTML = '';
     sliderList.insertAdjacentHTML('afterbegin', sliderItemsHtml);
   }
@@ -35,7 +36,9 @@ export default async function setSlider() {
       sliderList.style.transform = `translateX(${currentOffset - slideWidth}px)`; */
 
       count += 1;
+
       setSliderButtons(count, sliders.length);
+      setControls(count);
       sliderList.style.transform = `translateX(${-slideWidth * count}px)`;
     }
     if (e.target.id === 'prev-slide-btn' && count > 0) {
@@ -54,6 +57,7 @@ export default async function setSlider() {
 
       count -= 1;
       setSliderButtons(count, sliders.length);
+      setControls(count);
       sliderList.style.transform = `translateX(${-slideWidth * count}px)`;
     }
   });
