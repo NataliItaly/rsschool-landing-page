@@ -39,6 +39,10 @@ body {
   letter-spacing: 0%;
 }
 
+.overflow-none {
+  overflow-y: hidden;
+}
+
 body.light {
   color: var(--light-text-color);
   background: var(--light-bg-color);
@@ -105,7 +109,21 @@ button {
 }
 
 .header__menu {
+  flex-grow: 1;
   display: flex;
+  align-items: center;
+  transition: transform 0.6s ease-in;
+}
+
+.header__menu_active {
+  gap: 100px;
+  transition: transform 0.8s ease-in;
+}
+
+.header__list {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
   gap: 40px;
 }
@@ -137,14 +155,13 @@ button {
     width: 100%;
   }
 }
-
+/*
 .header__settings {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  margin-left: auto;
-}
+} */
 
 .header__menu-btn {
   display: block;
@@ -157,6 +174,7 @@ button {
   color: inherit;
   text-align: left;
   padding: 2px 0;
+  margin-left: 156px;
   position: relative;
 }
 
@@ -201,6 +219,10 @@ button {
   gap: 8px;
   width: 88px;
   height: 44px;
+  position: absolute;
+  right: 96px;
+  top: 50%;
+  transform: translateY(-50%);
   padding: 3px;
   border: 1px solid var(--dark-border-color);
   border-radius: 25px;
@@ -267,18 +289,32 @@ button {
   height: 1px;
   background: var(--text-color);
   transition: 0.4s ease-in;
+  position: relative;
 }
 
-.header__burger_active .header__burger-line {
-  animation: openBurger 1s forwards;
+.header__burger_active .header__burger-line:first-of-type {
+  animation: openBurger1 1s forwards;
 }
 
-@keyframes openBurger {
+.header__burger_active .header__burger-line:last-of-type {
+  animation: openBurger2 1s forwards;
+}
+
+@keyframes openBurger1 {
   40% {
-    transform: translateY(50%);
+    transform: translateY(4px);
   }
   100% {
-    transform: translateY(50%) rotate(45deg);
+    transform: translateY(4px) rotate(135deg);
+  }
+}
+
+@keyframes openBurger2 {
+  40% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(-4px) rotate(-135deg);
   }
 }
 
@@ -360,16 +396,24 @@ body.dark .hero__btn::after {
 }
 
 .slider {
+  width: 100%;
   position: relative;
 }
 
-.slider__list {
-  max-width: 480px;
+.slider__wrapper {
+  width: 480px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
+.slider__list {
+  width: fit-content;
+  display: flex;
+  transition: 0.5s ease-in;
+}
+
 .slider__item {
-  max-width: 480px;
+  width: 480px;
   margin-bottom: 40px;
 }
 
@@ -451,12 +495,28 @@ body.dark .slider__controls-item_active {
   transition: 0.4s ease-in;
 }
 
+.slider__btn:disabled {
+  pointer-events: none;
+}
+
 body.light .slider__btn {
   background: url(../assets/icons/arrow-light.svg) no-repeat center / 12px;
 }
 
 body.dark .slider__btn {
   background: url(../assets/icons/arrow-dark.svg) no-repeat center / 12px;
+}
+
+body.light .slider__btn:disabled {
+  background: url(../assets/icons/arrow-disabled-light.svg) no-repeat center /
+    14px;
+  border-color: var(--dark-border-color);
+}
+
+body.dark .slider__btn:disabled {
+  background: url(../assets/icons/arrow-disabled-dark.svg) no-repeat center /
+    12px;
+  border-color: var(--dark-footer-bg);
 }
 
 @media (hover: hover) {
@@ -923,16 +983,54 @@ body.dark .tabs__refresh-btn {
 }
 
 @media (max-width: 854px) {
-  .header__menu {
-    display: none;
-  }
-
   .header__burger {
     display: flex;
   }
 
-  .header__menu-btn#catalog-link {
-    display: none;
+  .header__menu {
+    position: fixed;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: calc(100vh - 100px);
+    flex-direction: column;
+    background: var(--bg-color);
+    padding: 50px 0;
+    transform: translateX(200%);
+  }
+
+  .header__menu_active {
+    transform: translateX(0);
+  }
+
+  .header__link,
+  .header__menu-btn {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 125%;
+  }
+
+  .header__link {
+    text-align: center;
+  }
+
+  .header__menu-btn {
+    width: 145px;
+    margin: 0;
+  }
+
+  .light .header__menu-btn {
+    background: url(../assets/icons/coffee-cup-light.svg) no-repeat center
+      right / 44px;
+  }
+
+  .dark .header__menu-btn {
+    background: url(../assets/icons/coffee-cup-dark.svg) no-repeat center
+      right / 44px;
+  }
+
+  .header__list {
+    flex-direction: column;
   }
 }
 
@@ -949,6 +1047,16 @@ body.dark .tabs__refresh-btn {
   .about__gallery-item:nth-child(2),
   .about__gallery-item:nth-child(3) {
     display: none;
+  }
+}
+
+@media (max-width: 630px) {
+  .slider__wrapper {
+    width: 348px;
+  }
+
+  .slider__item {
+    width: 348px;
   }
 }
 

@@ -1,4 +1,4 @@
-import setActiveTab from '../setActiveTab.js';
+import setActiveTab from './setActiveTab.js';
 import { getTabState, setTabState } from '../states.js';
 
 export default function setTabButtons() {
