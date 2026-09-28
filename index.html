@@ -94,69 +94,31 @@
               <span class="text_accent">favorite</span>
               coffee
             </h2>
-            <div class="choose__slider slider">
+            <div class="choose__slider slider" id="slider">
               <div class="slider__wrapper">
-                <ul class="slider__list">
-                  <li class="slider__item">
-                    <img
-                      src="./assets/images/slider/coffee-slider-1.png"
-                      alt="S’mores Frappuccino"
-                      class="slider__img"
-                    />
-                    <div class="slider__content">
-                      <p class="slider__item-title">S’mores Frappuccino</p>
-                      <p class="slider__item-text">
-                        This new drink takes an espresso and mixes it with brown
-                        sugar and cinnamon before being topped with oat milk.
-                      </p>
-                      <p class="slider__item-price">$5.50</p>
-                    </div>
-                  </li>
-                  <li class="slider__item">
-                    <img
-                      src="./assets/images/slider/coffee-slider-2.png"
-                      alt="S’mores Frappuccino"
-                      class="slider__img"
-                    />
-                    <div class="slider__content">
-                      <p class="slider__item-title">Caramel Macchiato</p>
-                      <p class="slider__item-text">
-                        Fragrant and unique classic espresso with rich
-                        caramel-peanut syrup, with cream under whipped thick
-                        foam.
-                      </p>
-                      <p class="slider__item-price">$5.00</p>
-                    </div>
-                  </li>
-                  <!-- <li class="slider__item">
-                    <img
-                      src="./assets/images/slider/coffee-slider-3.png"
-                      alt="Ice coffee"
-                      class="slider__img"
-                    />
-                    <div class="slider__content">
-                      <p class="slider__item-title">S’mores Frappuccino</p>
-                      <p class="slider__item-text">
-                        A popular summer drink that tones and invigorates.
-                        Prepared from coffee, milk and ice.
-                      </p>
-                      <p class="slider__item-price">$4.50</p>
-                    </div>
-                  </li> -->
-                </ul>
+                <ul class="slider__list"></ul>
                 <div class="slider__controls">
                   <button
                     class="slider__controls-item slider__controls-item_active"
                     aria-label="Slide button"
-                  ></button>
+                    data-count="0"
+                  >
+                    <span></span>
+                  </button>
                   <button
                     class="slider__controls-item"
                     aria-label="Slide button"
-                  ></button>
+                    data-count="1"
+                  >
+                    <span></span>
+                  </button>
                   <button
                     class="slider__controls-item"
                     aria-label="Slide button"
-                  ></button>
+                    data-count="2"
+                  >
+                    <span></span>
+                  </button>
                 </div>
               </div>
               <div class="slider__buttons" id="slider-btn">
