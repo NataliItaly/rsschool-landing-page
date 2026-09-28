@@ -15,8 +15,11 @@ export default function setCardList(parent, key) {
     refreshBtn.classList.remove('tabs__refresh-btn_visible');
   }
 
+  const cardsLimit = getTabState().visibleItems;
+  console.log('visible items from card list', getTabState());
+
   const currentData = isMobile
-    ? currentStateData[key].slice(0, 4)
+    ? currentStateData[key].slice(0, cardsLimit)
     : currentStateData[key];
 
   const cardsData = currentData.map((item, i) => setCard(key, item, i));
