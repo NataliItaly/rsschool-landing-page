@@ -1005,6 +1005,7 @@ body.dark .tabs__refresh-btn {
     background: var(--bg-color);
     padding: 50px 0;
     transform: translateX(200%);
+    overflow-y: auto;
   }
 
   .header__menu_active {
