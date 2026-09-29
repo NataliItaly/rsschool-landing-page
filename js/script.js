@@ -1,12 +1,19 @@
 import setActiveTab from './utils/setActiveTab.js';
 import setProducts from './utils/setProducts.js';
-import { getTheme, setTheme } from './states.js';
+import {
+  getTheme,
+  setTheme,
+  getCurrentProduct,
+  setCurrentProduct,
+} from './states.js';
 import setTabButtons from './utils/setTabButtons.js';
 import setRefreshBtn from './utils/setRefreshBtn.js';
 import setBurger from './utils/setBurger.js';
 import setSlider from './utils/setSlider.js';
 import closeBurgerMenu from './utils/closeBurgerMenu.js';
 import setModal from './utils/setModal.js';
+import closeModal from './utils/closeModal.js';
+import displayTotalPrice from './utils/displayTotalPrice.js';
 
 const currentTheme = getTheme();
 setTheme(currentTheme);
@@ -21,22 +28,89 @@ themeSwitch.addEventListener('click', function (e) {
 window.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') {
     closeBurgerMenu();
+    closeModal();
   }
 });
 
 window.addEventListener('click', function (e) {
   if (e.target.id === 'close-modal-btn') {
-    const modal = document.getElementById('modal');
-    if (modal) {
-      modal.remove();
+    closeModal();
+  }
+
+  /* if (e.target.closest('.card')) {
+    const productName = e.target.closest('.card').dataset.card;
+    console.log(productName);
+    console.log(getTabState().products);
+
+    const allProductArr = getTabState().products.flatMap((category) => {
+      for (let key in category) {
+        return category[key];
+      }
+    });
+    console.log(allProductArr);
+  } */
+
+  if (e.target.closest('#modal')) {
+    if (e.target.closest('.modal__label')) {
+      const label = e.target.closest('.modal__label');
+
+      if (label.hasAttribute('data-size')) {
+        const labels = document.querySelectorAll('.modal__label[data-size]');
+        labels.forEach((l) => l.classList.remove('modal__label_active'));
+      }
+
+      if (label.hasAttribute('data-additives')) {
+        const labels = document.querySelectorAll(
+          '.modal__label[data-additives]',
+        );
+        labels.forEach((l) => l.classList.remove('modal__label_active'));
+      }
+
+      label.classList.add('modal__label_active');
+
+      const currentProduct = getCurrentProduct();
+      const product = currentProduct.product;
+      const sizeAdd = label.dataset.size
+        ? Number(label.dataset.price)
+        : currentProduct.size.add;
+      const size = {
+        size: label.dataset.size || currentProduct.size.size,
+        add: sizeAdd,
+      };
+
+      const additiviesAdd = label.dataset.additives
+        ? Number(label.dataset.price)
+        : currentProduct.additives.add;
+      const additives = {
+        name: label.dataset.additives || currentProduct.additives.name,
+        add: additiviesAdd,
+      };
+      console.log(
+        'currentProduct.total + sizeAdd + additiviesAdd',
+        currentProduct.total,
+        sizeAdd,
+        additiviesAdd,
+      );
+      const newProduct = {
+        product,
+        size,
+        additives,
+        total: currentProduct.total + sizeAdd + additiviesAdd,
+      };
+
+      console.log(newProduct);
+
+      setCurrentProduct(newProduct);
+
+      displayTotalPrice(currentProduct.total);
     }
   }
 });
 
-setProducts();
+await setProducts();
 setTabButtons();
 setBurger();
-setSlider();
+await setSlider();
 setModal();
 
 window.addEventListener('DOMContentLoaded', function () {

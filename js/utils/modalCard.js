@@ -35,7 +35,7 @@ export default function modalCard(item) {
           </form>
           <div class="modal__price">
             <span>Total:</span>
-            <span>$${item.price}</span>
+            <span id="total-price">$${item.price}</span>
           </div>
           <div class="modal__alert">
             The cost is not final. Download our mobile app to see the final
