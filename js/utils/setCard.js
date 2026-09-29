@@ -1,6 +1,6 @@
 export default function setCard(key, product, i) {
   return `
-    <li class="tabs__card card">
+    <li class="tabs__card card" data-card="${product.name}">
       <div class="card__img-wrapper">
         <img
           src="./assets/images/${key}-images/${key}-${i + 1}.jpg"

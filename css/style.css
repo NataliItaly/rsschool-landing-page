@@ -948,6 +948,7 @@ body.dark .tabs__refresh-btn {
   border: 1px solid var(--dark-border-color);
   border-radius: 40px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .card__img-wrapper {
@@ -988,6 +989,198 @@ body.dark .tabs__refresh-btn {
   font-weight: 600;
   font-size: 24px;
   line-height: 125%;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background: rgba(64, 63, 61, 0.8);
+  overflow-y: auto;
+}
+
+.modal__card {
+  max-width: 800px;
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+body.light .modal__card {
+  background: var(--light-bg-color);
+}
+
+body.dark .modal__card {
+  background: var(--light-text-color);
+}
+
+.modal__img-wrapper {
+  flex: 0 0 310px;
+  width: 310px;
+  height: 310px;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.modal__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 1;
+}
+
+.modal__title,
+.modal__price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 125%;
+}
+
+.modal__title {
+  margin-bottom: 12px;
+}
+
+.modal__fieldset:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.modal__legend {
+  margin-bottom: 8px;
+}
+
+.modal__subtitle,
+.modal__legend,
+.modal__label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.modal__labels-wrapper {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.modal__label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border: 1px solid var(--dark-border-color);
+  border-radius: 100px;
+  padding: 8px;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.5s ease-in;
+}
+
+body.dark .modal__label {
+  border-color: var(--light-border-color);
+}
+
+.modal__label input[type='radio'] {
+  display: none;
+}
+
+.modal__label span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  text-transform: uppercase;
+  border-radius: 50%;
+  background: var(--dark-border-color);
+  transition: 0.5s ease-in;
+}
+
+body.light .modal__label:hover,
+body.light .modal__label_active {
+  color: var(--dark-text-color);
+  background: var(--light-border-color);
+}
+
+body.light .modal__label:hover span,
+body.light .modal__label_active span {
+  color: var(--text-color);
+  background: var(--dark-border-color);
+}
+
+body.dark .modal__label span {
+  background: var(--light-hover-color);
+}
+
+body.dark .modal__label:hover,
+body.dark .modal__label_active {
+  background: var(--dark-bg-color);
+}
+
+body.dark .modal__label:hover span,
+body.dark .modal__label_active span {
+  background: var(--dark-hover-color);
+}
+
+.modal__price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__alert {
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 140%;
+  padding: 12px 12px 12px 24px;
+  border-top: 1px solid var(--bg-color);
+}
+
+body.dark .modal__alert {
+  border-top: 1px solid var(--light-border-color);
+  background: url(../assets/icons/info-light.svg) no-repeat 0 12px / 16px;
+}
+
+body.dark .modal__alert {
+  background: url(../assets/icons/info-dark.svg) no-repeat 0 12px / 16px;
+}
+
+.modal__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  transition: 0.5s ease-in;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+body.light .modal__btn:hover {
+  color: var(--dark-text-color);
+  background: var(--light-border-color);
+}
+
+body.dark .modal__btn:hover {
+  color: var(--dark-text-color);
+  background: var(--light-border-color);
+  border-color: var(--light-border-color);
 }
 
 @media (max-width: 854px) {
@@ -1059,16 +1252,6 @@ body.dark .tabs__refresh-btn {
   }
 }
 
-@media (max-width: 630px) {
-  .slider__wrapper {
-    width: 348px;
-  }
-
-  .slider__item {
-    width: 348px;
-  }
-}
-
 @media (max-width: 680px) {
   .container {
     padding: 0 16px;
@@ -1115,6 +1298,22 @@ body.dark .tabs__refresh-btn {
   .footer__content {
     padding: 60px 16px;
     gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .modal__img-wrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 630px) {
+  .slider__wrapper {
+    width: 348px;
+  }
+
+  .slider__item {
+    width: 348px;
   }
 }
 
