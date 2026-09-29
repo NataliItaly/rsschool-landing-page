@@ -6,6 +6,7 @@ import setRefreshBtn from './utils/setRefreshBtn.js';
 import setBurger from './utils/setBurger.js';
 import setSlider from './utils/setSlider.js';
 import closeBurgerMenu from './utils/closeBurgerMenu.js';
+import setModal from './utils/setModal.js';
 
 const currentTheme = getTheme();
 setTheme(currentTheme);
@@ -23,10 +24,20 @@ window.addEventListener('keydown', function (e) {
   }
 });
 
+window.addEventListener('click', function (e) {
+  if (e.target.id === 'close-modal-btn') {
+    const modal = document.getElementById('modal');
+    if (modal) {
+      modal.remove();
+    }
+  }
+});
+
 setProducts();
 setTabButtons();
 setBurger();
 setSlider();
+setModal();
 
 window.addEventListener('DOMContentLoaded', function () {
   setRefreshBtn();
