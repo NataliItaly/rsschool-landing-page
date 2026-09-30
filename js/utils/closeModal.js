@@ -6,5 +6,6 @@ export default function closeModal() {
     modal.remove();
 
     resetCurrentProduct();
+    document.body.classList.remove('overflow-none');
   }
 }
