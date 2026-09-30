@@ -32,25 +32,22 @@ window.addEventListener('keydown', function (e) {
   }
 });
 
+window.addEventListener('resize', function () {
+  if (window.innerWidth >= 769) {
+    closeBurgerMenu();
+  }
+});
+
 window.addEventListener('click', function (e) {
   if (e.target.id === 'close-modal-btn') {
     closeModal();
   }
 
-  /* if (e.target.closest('.card')) {
-    const productName = e.target.closest('.card').dataset.card;
-    console.log(productName);
-    console.log(getTabState().products);
-
-    const allProductArr = getTabState().products.flatMap((category) => {
-      for (let key in category) {
-        return category[key];
-      }
-    });
-    console.log(allProductArr);
-  } */
-
   if (e.target.closest('#modal')) {
+    if (e.target.id === 'modal' && !e.target.closest('.modal__card')) {
+      closeModal();
+    }
+
     if (e.target.closest('.modal__label')) {
       const label = e.target.closest('.modal__label');
 
