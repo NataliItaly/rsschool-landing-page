@@ -21,6 +21,8 @@ export default function setModal() {
         const modal = modalCard(currentProduct);
         document.body.insertAdjacentHTML('afterbegin', modal);
 
+        document.body.classList.add('overflow-none');
+
         initCurrentProduct(currentProduct);
         console.log('currentProduct.total', currentProduct.total); // undefined
         displayTotalPrice(getCurrentProduct().total);
