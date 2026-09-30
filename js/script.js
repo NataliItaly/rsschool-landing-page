@@ -95,7 +95,7 @@ window.addEventListener('click', function (e) {
         product,
         size,
         additives,
-        total: currentProduct.total + sizeAdd + additiviesAdd,
+        total: Number(currentProduct.product.price) + sizeAdd + additiviesAdd,
       };
 
       console.log(newProduct);
