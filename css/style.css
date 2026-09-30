@@ -1183,7 +1183,29 @@ body.dark .modal__btn:hover {
   border-color: var(--light-border-color);
 }
 
-@media (max-width: 854px) {
+@media (max-width: 890px) {
+  .header__list {
+    gap: 15px;
+  }
+
+  .header__link {
+    font-size: 15px;
+  }
+
+  .header__toggle {
+    right: 85px;
+  }
+
+  .header__menu-btn {
+    margin-left: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
   .header__burger {
     display: flex;
   }
@@ -1199,6 +1221,7 @@ body.dark .modal__btn:hover {
     padding: 50px 0;
     transform: translateX(200%);
     overflow-y: auto;
+    z-index: 50;
   }
 
   .header__menu_active {
