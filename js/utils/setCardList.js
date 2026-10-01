@@ -16,7 +16,6 @@ export default function setCardList(parent, key) {
   }
 
   const cardsLimit = getTabState().visibleItems;
-  console.log('visible items from card list', getTabState());
 
   const currentData = isMobile
     ? currentStateData[key].slice(0, cardsLimit)

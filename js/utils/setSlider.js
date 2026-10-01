@@ -25,7 +25,6 @@ export default async function setSlider() {
 
       if (e.target.closest('.slider__controls-item')) {
         const index = e.target.closest('.slider__controls-item').dataset.count;
-        console.log(index);
 
         count = index;
         setSliderButtons(count, sliders.length);

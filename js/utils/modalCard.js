@@ -1,6 +1,6 @@
 import createFieldset from './createFieldset.js';
 
-export default function modalCard(item) {
+export default function modalCard(item, i) {
   const sizesObj = {
     sizes: item.sizes,
   };
@@ -17,7 +17,7 @@ export default function modalCard(item) {
       <div class="modal__card">
         <div class="modal__img-wrapper">
           <img
-            src="./assets/images/${item.category}-images/${item.category}-1.jpg"
+            src="./assets/images/${item.category}-images/${item.category}-${i}.jpg"
             alt=""
             class="modal__img"
           />

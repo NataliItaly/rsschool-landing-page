@@ -62,12 +62,7 @@ export function initCurrentProduct(item) {
   currentProduct.product = item;
   const sizeAddPrice = Number(Object.values(item.sizes)[0]['add-price']);
   const additivesAddPrice = Number(item.additives[0]['add-price']);
-  console.log(
-    'sizeAddPrce',
-    sizeAddPrice,
-    'additivesAddPrice',
-    additivesAddPrice,
-  );
+
   currentProduct.size = {
     size: Object.keys(item.sizes)[0],
     add: sizeAddPrice,
@@ -77,13 +72,11 @@ export function initCurrentProduct(item) {
     add: additivesAddPrice,
   };
   currentProduct.total = Number(item.price) + sizeAddPrice + additivesAddPrice;
-  console.log('currentProduct', currentProduct);
 }
 
 export function setCurrentProduct(obj) {
   for (let key in obj) {
     if (currentProduct[key]) {
-      console.log(key);
       currentProduct[key] = obj[key];
     }
   }
