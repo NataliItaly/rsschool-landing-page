@@ -36,6 +36,7 @@ window.addEventListener('resize', function () {
   if (window.innerWidth >= 769) {
     closeBurgerMenu();
   }
+  setRefreshBtn();
 });
 
 window.addEventListener('click', function (e) {
@@ -82,20 +83,13 @@ window.addEventListener('click', function (e) {
         name: label.dataset.additives || currentProduct.additives.name,
         add: additiviesAdd,
       };
-      console.log(
-        'currentProduct.total + sizeAdd + additiviesAdd',
-        currentProduct.total,
-        sizeAdd,
-        additiviesAdd,
-      );
+
       const newProduct = {
         product,
         size,
         additives,
         total: Number(currentProduct.product.price) + sizeAdd + additiviesAdd,
       };
-
-      console.log(newProduct);
 
       setCurrentProduct(newProduct);
 
@@ -109,6 +103,7 @@ setTabButtons();
 setBurger();
 await setSlider();
 setModal();
+setRefreshBtn();
 
 window.addEventListener('DOMContentLoaded', function () {
   setRefreshBtn();

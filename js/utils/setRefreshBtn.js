@@ -5,21 +5,21 @@ import setCardList from './setCardList.js';
 export default function setRefreshBtn() {
   const isMobile = isMobileDevice();
   const refreshBtn = document.getElementById('refresh-btn');
+  console.log('from refresh');
 
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function () {
+      console.log('refresh');
       const tabState = getTabState();
       const currentTab = tabState.tab;
       const currentProducts = tabState.products.find(
         (item) => Object.keys(item)[0] === currentTab,
       )[currentTab];
-      console.log(tabState, currentProducts);
 
       if (currentProducts.length > 4) {
         setTabState({ visibleItems: currentProducts.length });
-        console.log('visible items from refresh after click', getTabState());
+
         const currentTabElement = document.getElementById(`${currentTab}-tab`);
-        console.log(currentTabElement);
         currentTabElement.innerHTML = '';
         setCardList(currentTabElement, currentTab);
       }
