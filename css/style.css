@@ -1361,3 +1361,17 @@ body.dark .modal__btn:hover {
     max-width: 260px;
   }
 }
+
+@media (max-width: 378px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .slider__wrapper {
+    width: 300px;
+  }
+
+  .slider__item {
+    width: 300px;
+  }
+}
