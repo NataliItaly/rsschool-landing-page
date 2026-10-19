@@ -55,46 +55,80 @@ window.addEventListener('click', function (e) {
       if (label.hasAttribute('data-size')) {
         const labels = document.querySelectorAll('.modal__label[data-size]');
         labels.forEach((l) => l.classList.remove('modal__label_active'));
+
+        const currentProduct = getCurrentProduct();
+        const product = currentProduct.product;
+        const sizeAdd = label.dataset.size
+          ? Number(label.dataset.price)
+          : currentProduct.size.add;
+        const size = {
+          size: label.dataset.size || currentProduct.size.size,
+          add: sizeAdd,
+        };
+        console.log('from click on label', size);
+
+        const newProduct = {
+          product,
+          size,
+          additives: [...currentProduct.additives],
+          total: Number(currentProduct.product.price) + sizeAdd,
+        };
+        console.log('new product from click on label', newProduct);
+        setCurrentProduct(newProduct);
+
+        displayTotalPrice(newProduct.total);
       }
-
-      if (label.hasAttribute('data-additives')) {
-        const labels = document.querySelectorAll(
-          '.modal__label[data-additives]',
-        );
-        labels.forEach((l) => l.classList.remove('modal__label_active'));
-      }
-
-      label.classList.add('modal__label_active');
-
-      const currentProduct = getCurrentProduct();
-      const product = currentProduct.product;
-      const sizeAdd = label.dataset.size
-        ? Number(label.dataset.price)
-        : currentProduct.size.add;
-      const size = {
-        size: label.dataset.size || currentProduct.size.size,
-        add: sizeAdd,
-      };
-
-      const additiviesAdd = label.dataset.additives
-        ? Number(label.dataset.price)
-        : currentProduct.additives.add;
-      const additives = {
-        name: label.dataset.additives || currentProduct.additives.name,
-        add: additiviesAdd,
-      };
-
-      const newProduct = {
-        product,
-        size,
-        additives,
-        total: Number(currentProduct.product.price) + sizeAdd + additiviesAdd,
-      };
-
-      setCurrentProduct(newProduct);
-
-      displayTotalPrice(currentProduct.total);
     }
+  }
+});
+
+window.addEventListener('change', function (e) {
+  console.log('checkbox', e.target);
+  if (e.target.matches('.modal__checkbox') && e.target.checked) {
+    console.log('Checked:', e.target.checked);
+    const add = Number(e.target.dataset.add);
+    const value = e.target.value;
+
+    const currentProduct = getCurrentProduct();
+    const newAdditieve = {
+      value,
+      add,
+    };
+    //console.log('total before add', currentProduct.total);
+    //console.log('new additives', newAdditieve.add);
+    console.log('current total:', currentProduct.total);
+    console.log('total type:', typeof currentProduct.total);
+    console.log('add:', add);
+    console.log('add type:', typeof add);
+    const total = currentProduct.total + newAdditieve.add;
+    setCurrentProduct({
+      additives: [...currentProduct.additives, newAdditieve],
+      total,
+    });
+
+    displayTotalPrice(total);
+    console.log(getCurrentProduct());
+  }
+
+  if (e.target.matches('.modal__checkbox') && !e.target.checked) {
+    console.log('Checked:', e.target.checked);
+    const add = Number(e.target.dataset.add);
+    const value = e.target.value;
+
+    const currentProduct = getCurrentProduct();
+    const remainAdditieves = currentProduct.additives.filter(
+      (a) => a.value !== value,
+    );
+
+    console.log('total before add', currentProduct.total);
+    console.log('remain additives', remainAdditieves);
+    const total = currentProduct.total - add;
+    setCurrentProduct({
+      additives: [...remainAdditieves],
+      total,
+    });
+    console.log(getCurrentProduct());
+    displayTotalPrice(total);
   }
 });
 
