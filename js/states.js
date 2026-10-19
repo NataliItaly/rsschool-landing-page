@@ -75,7 +75,6 @@ export function setCurrentProduct(obj) {
   for (let key in obj) {
     if (currentProduct[key] === 'additives') {
       obj.additives.forEach((add, i) => {
-        console.log('additive', add);
         if (
           !currentProduct.additives.some(
             (item) => item.name === obj.additives[i].name,
