@@ -8,7 +8,6 @@ export default function setRefreshBtn() {
 
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function () {
-      console.log('refresh');
       const tabState = getTabState();
       const currentTab = tabState.tab;
       const currentProducts = tabState.products.find(

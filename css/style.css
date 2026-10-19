@@ -1364,9 +1364,9 @@ body.dark .modal__btn:hover {
     gap: 12px;
   }
 
-  .slider__buttons {
+  /* .slider__buttons {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 380px) {
