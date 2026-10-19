@@ -10,6 +10,12 @@ export default function createFieldset(obj) {
       const label = createSizeLabel(key, values[key]);
       labelsHtml += label;
     }
+    /*  const keysArr = Object.keys(values);
+    for (let i = 0; i < keysArr.length; i++) {
+      const item = keysArr[i];
+      const label = createSizeLabel(item, values[item], i);
+      labelsHtml += label;
+    } */
   }
 
   if (keyCategory === 'additives') {

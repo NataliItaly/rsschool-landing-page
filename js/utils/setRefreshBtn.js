@@ -5,7 +5,6 @@ import setCardList from './setCardList.js';
 export default function setRefreshBtn() {
   const isMobile = isMobileDevice();
   const refreshBtn = document.getElementById('refresh-btn');
-  console.log('from refresh');
 
   if (refreshBtn) {
     refreshBtn.addEventListener('click', function () {

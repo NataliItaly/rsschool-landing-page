@@ -54,29 +54,37 @@ export function setTabState(obj) {
 let currentProduct = {
   product: null,
   size: null,
-  additives: null,
-  total: null,
+  additives: [],
+  total: 0,
 };
 
 export function initCurrentProduct(item) {
   currentProduct.product = item;
   const sizeAddPrice = Number(Object.values(item.sizes)[0]['add-price']);
-  const additivesAddPrice = Number(item.additives[0]['add-price']);
+  //const additivesAddPrice = Number(item.additives[0]['add-price']);
 
   currentProduct.size = {
     size: Object.keys(item.sizes)[0],
     add: sizeAddPrice,
   };
-  currentProduct.additives = {
-    name: item.additives[0].name,
-    add: additivesAddPrice,
-  };
-  currentProduct.total = Number(item.price) + sizeAddPrice + additivesAddPrice;
+  currentProduct.additives = [];
+  currentProduct.total = Number(item.price) + sizeAddPrice;
 }
 
 export function setCurrentProduct(obj) {
   for (let key in obj) {
-    if (currentProduct[key]) {
+    if (currentProduct[key] === 'additives') {
+      obj.additives.forEach((add, i) => {
+        console.log('additive', add);
+        if (
+          !currentProduct.additives.some(
+            (item) => item.name === obj.additives[i].name,
+          )
+        ) {
+          currentProduct.additives.push(obj.additives[i]);
+        }
+      });
+    } else if (currentProduct[key]) {
       currentProduct[key] = obj[key];
     }
   }

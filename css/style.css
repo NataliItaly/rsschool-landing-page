@@ -1100,7 +1100,8 @@ body.dark .modal__label {
   border-color: var(--light-border-color);
 }
 
-.modal__label input[type='radio'] {
+.modal__label input[type='radio'],
+input[type='checkbox'] {
   display: none;
 }
 
@@ -1116,29 +1117,41 @@ body.dark .modal__label {
   transition: 0.5s ease-in;
 }
 
-body.light .modal__label:hover,
-body.light .modal__label_active {
+body.light .modal__label:hover {
+  background: #dfc8ab;
+}
+
+body.light .modal__label_active,
+body.light input[type='checkbox']:checked + label {
   color: var(--dark-text-color);
   background: var(--light-border-color);
 }
 
 body.light .modal__label:hover span,
-body.light .modal__label_active span {
+body.light .modal__label_active span,
+body.light input[type='checkbox']:checked + label span {
   color: var(--text-color);
   background: var(--dark-border-color);
 }
 
-body.dark .modal__label span {
+body.dark .modal__label span,
+body.dark input[type='checkbox'] + label span {
   background: var(--light-hover-color);
 }
 
-body.dark .modal__label:hover,
-body.dark .modal__label_active {
+body.dark .modal__label:hover {
+  background: #6f6144;
+}
+
+body.dark .modal__label_active,
+body.dark input[type='checkbox']:checked + label {
   background: var(--dark-bg-color);
 }
 
 body.dark .modal__label:hover span,
-body.dark .modal__label_active span {
+body.dark .modal__label_active span,
+body.dark input[type='checkbox']:checked + label span,
+body.dark input[type='checkbox']:checked + label:hover span {
   background: var(--dark-hover-color);
 }
 
@@ -1359,5 +1372,19 @@ body.dark .modal__btn:hover {
 @media (max-width: 380px) {
   .hero__content {
     max-width: 260px;
+  }
+}
+
+@media (max-width: 378px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .slider__wrapper {
+    width: 300px;
+  }
+
+  .slider__item {
+    width: 300px;
   }
 }
