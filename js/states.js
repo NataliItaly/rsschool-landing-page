@@ -1,4 +1,4 @@
-import setActiveTab from './setActiveTab.js';
+import setActiveTab from './utils/setActiveTab.js';
 
 const currentTheme = {
   theme: 'light',
@@ -49,4 +49,56 @@ export function setTabState(obj) {
   });
 
   setActiveTab();
+}
+
+let currentProduct = {
+  product: null,
+  size: null,
+  additives: [],
+  total: 0,
+};
+
+export function initCurrentProduct(item) {
+  currentProduct.product = item;
+  const sizeAddPrice = Number(Object.values(item.sizes)[0]['add-price']);
+  //const additivesAddPrice = Number(item.additives[0]['add-price']);
+
+  currentProduct.size = {
+    size: Object.keys(item.sizes)[0],
+    add: sizeAddPrice,
+  };
+  currentProduct.additives = [];
+  currentProduct.total = Number(item.price) + sizeAddPrice;
+}
+
+export function setCurrentProduct(obj) {
+  for (let key in obj) {
+    if (currentProduct[key] === 'additives') {
+      obj.additives.forEach((add, i) => {
+        console.log('additive', add);
+        if (
+          !currentProduct.additives.some(
+            (item) => item.name === obj.additives[i].name,
+          )
+        ) {
+          currentProduct.additives.push(obj.additives[i]);
+        }
+      });
+    } else if (currentProduct[key]) {
+      currentProduct[key] = obj[key];
+    }
+  }
+}
+
+export function getCurrentProduct() {
+  return currentProduct;
+}
+
+export function resetCurrentProduct() {
+  currentProduct = {
+    product: null,
+    size: null,
+    additives: null,
+    total: null,
+  };
 }
